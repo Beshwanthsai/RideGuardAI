@@ -1,16 +1,24 @@
 from fastapi import FastAPI
 
-app = FastAPI(title="RideGaurdAI")
+from backend.routes.ride import router as ride_router
+
+app = FastAPI(
+    title="RideGuard AI",
+    version="1.0.0"
+)
+
+app.include_router(ride_router)
+
 
 @app.get("/")
-def Home():
+def home():
     return {
-        "message":"Welcome to RideGaurdAI"
+        "message": "RideGuard AI Running"
     }
 
 
 @app.get("/health")
 def health():
     return {
-        "status":"healthy" 
+        "status": "healthy"
     }
