@@ -7,4 +7,10 @@ def Home():
     return {
         "message":"Welcome to RideGaurdAI"
     }
-    
+
+
+@app.get("/health")
+def health():
+    return {
+        "status":"healthy" 
+    }
